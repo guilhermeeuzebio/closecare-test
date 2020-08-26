@@ -1,0 +1,44 @@
+<form [formGroup]="registerForm">
+    <div class="content">
+    <!-- <div class="parent child"> -->
+        <div class="row mb-3">
+            <div class="col-sm-6 col-md-7">
+                <h3>Cadastro de funcionário</h3>
+            </div>
+            <div class="col-sm-6 col-md-7">
+                <label class="form-label">Nome:*</label>
+                <input name="nome" formControlName="first_name" class="form-control">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-sm-6 col-md-7">
+                <label class="form-label">Sobrenome:</label>
+                <input name="nome" formControlName="last_name" class="form-control">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-sm-6 col-md-7">
+                <label class="form-label">Gênero:*</label>
+                <select class="form-control" name="nome" formControlName="gender">
+                    <option value="" hidden>Selecione</option>
+                    <option [ngValue]="gender.value" *ngFor="let gender of genders">{{gender.name}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-sm-6 col-md-7">
+                <label class="form-label">Data de nascimento:</label>
+                <input name="nome" formControlName="birth_date" class="form-control" mask="00/00/0000">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-sm-6 col-md-7">
+                <label class="form-label">CPF:*</label>
+                <input name="nome" formControlName="CPF" class="form-control" mask="000.000.000-00">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <button pButton type="button" label="Cadastrar" class="ui-button-rounded col-sm-6 col-md-7" [disabled]="disabledButton" (click)=register()></button>
+        </div>
+    </div>
+</form>
